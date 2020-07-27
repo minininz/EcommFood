@@ -129,4 +129,11 @@ def removetotal(request):
     link=request.POST.get('link','/')
     return redirect(link)
 
-
+def tryy(request):
+    orderpdts=OrderPdts.objects.filter(ordered=False)
+    order=Order()
+    context = {
+        'orderpdts': orderpdts,
+        'order':order
+    }
+    return render(request,"cart.html",context)
